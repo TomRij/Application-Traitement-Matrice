@@ -14,10 +14,10 @@ namespace _5TTI_ApplicationTraitementMatriceBON_RijckaertTom
             // instantiation de la variable random
             Random alea = new Random();
             // boucle pour passer dans les lignes de la matrice
-            for (int ligne = 0; ligne < nbLigne - 1; ligne++)
+            for (int ligne = 0; ligne < nbLigne; ligne++)
             {
                 // boucle pour passer dans les colonnes de la matrice
-                for (int colonne = 0; colonne < nbColonne - 1; colonne++)
+                for (int colonne = 0; colonne < nbColonne; colonne++)
                 {
                     // mise des données alléatoires comprises entre 1 et 20 dans la matrice 
                     tabAlea[ligne, colonne] = alea.Next(0, 20);
@@ -30,10 +30,10 @@ namespace _5TTI_ApplicationTraitementMatriceBON_RijckaertTom
             // instanciation de la variable stringTab
             stringTab = "";
             // boucle pour se balades dans les lignes de la matrice
-            for (int ligne = 0; ligne < Tab.GetLength(0)-1; ligne++)
+            for (int ligne = 0; ligne < Tab.GetLength(0); ligne++)
             {
                 // boucle pour se balader dans les colonnes de la matrice
-                for (int colonne = 0; colonne < Tab.GetLength(1)-1; colonne++)
+                for (int colonne = 0; colonne < Tab.GetLength(1); colonne++)
                 {
                     // mise des données de la matrice dans la variable string stringTab
                     stringTab += Tab[ligne, colonne] + "|";
@@ -59,10 +59,10 @@ namespace _5TTI_ApplicationTraitementMatriceBON_RijckaertTom
             if (tab1.GetLength(0) == tab2.GetLength(0) && tab1.GetLength(1) == tab2.GetLength(1))
             {
                 // boucle se baladant dans les lignes des matrices
-                for (int ligne = 0; ligne < tab1.GetLength(0)-1; ligne++)
+                for (int ligne = 0; ligne < tab1.GetLength(0); ligne++)
                 {
                     // boucle se baladant dans les colonnes des matrices
-                    for (int colonne = 0; colonne < tab2.GetLength(1)-1; colonne++)
+                    for (int colonne = 0; colonne < tab2.GetLength(1); colonne++)
                     {
                         // addition de tab1 et tab2 et solution dans tab3
                         tab3[ligne, colonne] = tab1[ligne, colonne] + tab2[ligne, colonne];
@@ -84,17 +84,17 @@ namespace _5TTI_ApplicationTraitementMatriceBON_RijckaertTom
         /// <param name="test">renvoie si la multiplications a été possible ou pas</param>
         public void MultiplicationsMatrice(int[,] matrice1, int[,] matrice2, out int[,] matriceMulti, out bool test)
         {
-            matriceMulti = new int[matrice1.GetLength(0) - 1, matrice2.GetLength(1) - 1];
+            matriceMulti = new int[matrice1.GetLength(0), matrice2.GetLength(1)];
             test = true;
             // vérification que le nombre de colonne de matrice1 est égal au nombre de ligne de matrice2
             if (matrice1.GetLength(1) == matrice2.GetLength(0))
             {
-                for (int ligne = 0; ligne < matrice1.GetLength(0) - 1; ligne++)
+                for (int ligne = 0; ligne < matrice1.GetLength(0); ligne++)
                 {
-                    for (int colonne = 0; colonne < matrice2.GetLength(1)-1; colonne++)
+                    for (int colonne = 0; colonne < matrice2.GetLength(1); colonne++)
                     {
                         matriceMulti[ligne, colonne] = 0;
-                        for (int i = 0; i < matrice1.GetLength(1)-1; i++)
+                        for (int i = 0; i < matrice1.GetLength(1); i++)
                         {
                             // multiplication de la matrice1 avec la matrice2 et solution dans la matriceMulti
                             matriceMulti[ligne, colonne] += matrice1[ligne, i] * matrice2[i, colonne];
